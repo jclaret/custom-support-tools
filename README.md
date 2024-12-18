@@ -1,6 +1,6 @@
 # Custom Support Tools Container
 
-This repository contains a `Containerfile` to build a custom container image based on `registry.redhat.io/rhel9/support-tools`. The image includes the `kernel-tools` RPM package.
+This repository contains a `Containerfile` to build a custom container image based on `registry.redhat.io/rhel9/support-tools`. The image includes the `kernel-tools` RPM package which provides the `turbostat` command.
 
 ## Prerequisites
 
