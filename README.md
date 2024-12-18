@@ -16,9 +16,9 @@ Ensure you have the following files in the same directory:
 ### 2. Build the Container Image
 Run the following command to build the container image:
 ```bash
-$ podman build -t custom-support-tools .
+$ make build TAG=turbostat20230317
 $ podman login quay.io/jclaret
-$ podman push quay.io/jclaret/custom-support-tools:latest
+$ make push TAG=turbostat20230317
 ```
 
 ### 3. Create a .toolboxrc File
@@ -28,8 +28,10 @@ $ oc debug node/sno-ctlplane-0.5g-deployment.lab
 $ chroot /host
 $ vi ~/.toolboxrc
 REGISTRY=quay.io                
-IMAGE=jclaret/custom-support-tools:latest 
+IMAGE=jclaret/custom-support-tools:turbostat20230317
 TOOLBOX_NAME=custom-support-tools
+
+# toolbox
 ```
 
 Start a toolbox container using the configuration:
@@ -37,4 +39,6 @@ Start a toolbox container using the configuration:
 $ toolbox
 $ which turbostat
 /usr/bin/turbostat
+# turbostat -v
+turbostat version 2023.03.17 - Len Brown <lenb@kernel.org>
 ```
